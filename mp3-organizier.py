@@ -9,11 +9,17 @@
 # 
 
 import sys;
+import os;
 
 class Main:
 	__interface = None;
 
 	def __init__(self):
+		path = os.path.abspath(__file__);
+		if os.path.islink(path):
+			path = os.readlink(path);
+		path = os.path.dirname(path);
+		os.chdir(path);
 		if len(sys.argv) < 2:
 			try:
 				import MP3Organizer.interfaces.qt;
