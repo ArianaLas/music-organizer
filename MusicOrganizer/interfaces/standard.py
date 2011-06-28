@@ -130,7 +130,7 @@ class Organizer(interface.Interface):
 				utils.verbose(_('Removing %s') % path);
 				os.rmdir(path);
 			except Exception as err:
-				utils.verbose(_('I can\'t remove %s') % path);
+				utils.verbose(_('Cannot remove %s') % path);
 				try:
 					if self.__force:
 						utils.v(_('Force removing %s') % path);

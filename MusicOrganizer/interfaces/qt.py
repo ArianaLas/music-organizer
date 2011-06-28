@@ -342,7 +342,7 @@ class Organizer(QtGui.QMainWindow, interface.Interface):
 			self.__numDeleted += 1;
 			return True;
 		except Exception:
-			utils.verbose(_('I cannot remove %s') % path);
+			utils.verbose(_('Cannot remove %s') % path);
 			try:
 				if self.__force.isChecked():
 					print(_('Force remove...'));

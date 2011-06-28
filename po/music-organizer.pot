@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Patryk Jaworski <skorpion9312@gmail.com>
-# This file is distributed under the same license as the Music Organizer package.
+# This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Music Organizer 0.1-alpha\n"
 "Report-Msgid-Bugs-To: Patryk Jaworski <skorpion9312@gmail.com>\n"
-"POT-Creation-Date: 2011-06-28 23:04+0200\n"
+"POT-Creation-Date: 2011-06-28 23:20+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -278,8 +278,9 @@ msgid "Removing %s"
 msgstr ""
 
 #: MusicOrganizer/interfaces/qt.py:345
+#: MusicOrganizer/interfaces/standard.py:133
 #, python-format
-msgid "I cannot remove %s"
+msgid "Cannot remove %s"
 msgstr ""
 
 #: MusicOrganizer/interfaces/qt.py:348
@@ -377,11 +378,6 @@ msgstr ""
 #: MusicOrganizer/interfaces/standard.py:105
 #, python-format
 msgid "Cannot list directory %s..."
-msgstr ""
-
-#: MusicOrganizer/interfaces/standard.py:133
-#, python-format
-msgid "I can't remove %s"
 msgstr ""
 
 #: MusicOrganizer/interfaces/standard.py:145
