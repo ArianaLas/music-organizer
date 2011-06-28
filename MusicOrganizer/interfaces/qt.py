@@ -57,7 +57,7 @@ class Organizer(QtGui.QMainWindow, interface.Interface):
 	# TODO: Add 'detect duplicates option'
 	def __initUI(self):
 		utils.verbose('Initializing UI...');
-		self.setWindowTitle('MP3 Organizer');
+		self.setWindowTitle('Music Organizer');
 		self.resize(500, 300);
 		self.setWindowIcon(QtGui.QIcon('./data/icons/icon.png'));
 		self.__statusBar = self.statusBar();
@@ -68,7 +68,7 @@ class Organizer(QtGui.QMainWindow, interface.Interface):
 		start.setStatusTip('Start organize');
 		self.connect(start, QtCore.SIGNAL('triggered()'), self.__startOrganize);
 		exit = QtGui.QAction(QtGui.QIcon('./data/icons/exit.png'), 'Exit', self);
-		exit.setStatusTip('Exit MP3 Organizer');
+		exit.setStatusTip('Exit Music Organizer');
 		self.connect(exit, QtCore.SIGNAL('triggered()'), QtCore.SLOT('close()'));
 		toolbar = self.addToolBar('Start');
 		toolbar.addAction(start);
@@ -289,7 +289,7 @@ class Organizer(QtGui.QMainWindow, interface.Interface):
 			self.__progress.setLabelText("Organizing files...");
 		else:
 			self.__progress.setValue(self.__progress.maximum);
-			self.__progress.setLabelText("No MP3 files found!");
+			self.__progress.setLabelText("No music files found!");
 			return True;
 		try:
 			for F in self.__files:
@@ -360,12 +360,12 @@ class Organizer(QtGui.QMainWindow, interface.Interface):
 		return False;
 
 	def __critical(self, msg):
-		QtGui.QMessageBox.critical(self, 'MP3 Organizer :: Critical error', msg, QtGui.QMessageBox.Ok);
+		QtGui.QMessageBox.critical(self, 'Music Organizer :: Critical error', msg, QtGui.QMessageBox.Ok);
 
 	def __about(self):
-		QtGui.QMessageBox.about(self, "MP3 Organizer :: About",
-		"""<b>MP3 Organizer</b> v{0}
+		QtGui.QMessageBox.about(self, "Music Organizer :: About",
+		"""<b>Music Organizer</b> v{0}
 		<p>Copyright &copy; by Patryk Jaworski &lt;skorpion9312@gmail.com&gt;</p>
 		<p>Automatically organize your MP3 music collection</p>
-		<p>Python {1} - Qt {2} - PyQt {3} on {4}</p>""".format('0.3b', platform.python_version(), QtCore.QT_VERSION_STR, QtCore.PYQT_VERSION_STR, platform.system()));
+		<p>Python {1} - Qt {2} - PyQt {3} on {4}</p>""".format(utils.getVersion(), platform.python_version(), QtCore.QT_VERSION_STR, QtCore.PYQT_VERSION_STR, platform.system()));
 

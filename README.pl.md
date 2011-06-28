@@ -46,11 +46,11 @@ Użycie
 
 Uruchom bez żadnych opcji aby włączyć tryb z interfejsem graficznym:
 
-	$ ./mp3-organizer.py 
+	$ ./music-organizer.py 
 
 Aby skorzystać z interfejsu tekstowego wystarczy podać jedną z obsługowanych opcji, ich listę można wyświetlić w ten sposób:
 
-	$ ./mp3-organizer.py --help
+	$ ./music-organizer.py --help
 
 Opis opcji
 ==========
@@ -70,16 +70,16 @@ Opis opcji
 Przykłady
 =========
 
-	$ mp3-organizer -p ~/Music/ -t ~/Music/ -r --recognize-covers
+	$ music-organizer -p ~/Music/ -t ~/Music/ -r --recognize-covers
 
 Rekurencyjnie (przeglądaj również katalogi w katalogach) organizuj katalog *~/Music/* (opcja -p), pliki wynikowe składuj w tym samym katalogu (opcja -t). Dodatkowo próbuj rozpoznawać okładki (opcja --recognize-covers).
 
 	$ mkdir ~/Music # (tworzenie pustego katalogu ~/Music)
-	$ mp3-organizer -v -p ~/ -t ~/Music/ -r -d
+	$ music-organizer -v -p ~/ -t ~/Music/ -r -d
 
 Znajdź wszystkie pliki MP3 w katalogu domowym i przenieś je do ~/Music, wypisuj dokładnie co robisz (opcja -v). Próbuj usuwać katalogi z których przeniesiono muzykę (tylko jeżeli są puste).
 
-	$ mp3-organizer -v -c -p ~/Music/Iron\ Maiden/ -t /media/TELEFON/Muzyka --scheme {artist}-{album}/{track}-{title}
+	$ music-organizer -v -c -p ~/Music/Iron\ Maiden/ -t /media/TELEFON/Muzyka --scheme {artist}-{album}/{track}-{title}
 
 Skopiuj (opcja -c) wszystkie pliki MP3 z katalogu *~/Music/Iron Maiden/* do katalogu */media/TELEFON/Muzyka/*, jako schemat przyjmij *{artist}-{album}/{track}-{title}*
 
@@ -120,9 +120,9 @@ Aktualny stan katalogu:
 
 Cel: **Posortowanie plików MP3 w katalogu Muzyka wg wzorca: wykonawca/tytul**
 
-Realizacj za pomocą **mp3-organizer**:
+Realizacj za pomocą **music-organizer**:
 
-	$ mp3-organizer -v -p Muzyka/ -t Muzyka/ --recognize-covers --scheme {artist}/{title}
+	$ music-organizer -v -p Muzyka/ -t Muzyka/ --recognize-covers --scheme {artist}/{title}
 
 Standardowe wyjście:
 
@@ -167,9 +167,9 @@ Stan katalogu:
 			└── The Wicker Man.mp3
 	2 directories, 11 files
 
-Po jakimś czasie zmieniamy zdanie, chcemy by cała nasza kolekcja była w postaci: **rok-wydania-plyty/artysta/album/tytuł**. Z **mp3-organizer** to żaden problem. Wystarczy:
+Po jakimś czasie zmieniamy zdanie, chcemy by cała nasza kolekcja była w postaci: **rok-wydania-plyty/artysta/album/tytuł**. Z **music-organizer** to żaden problem. Wystarczy:
 
-	$ mp3-organizer -v -d -r -p Muzyka/ -t Muzyka/ --recognize-covers --scheme {date}/{artist}/{album}/{title}
+	$ music-organizer -v -d -r -p Muzyka/ -t Muzyka/ --recognize-covers --scheme {date}/{artist}/{album}/{title}
 
 Zostały zostosowane dodatkowe opcje: **-d**, **-r**. Ich opis znajduje się wyżej.
 
@@ -196,7 +196,7 @@ Po wykonaniu powyższego polecenia nasz katalog wygląda tak:
 
 Oczywiście jeżeli chcemy przywrócić kolekcję do stanu pierwotnego - nie ma problemu:
 
-	$ mp3-organizer -v -d -r -p Muzyka/ -t Muzyka/ --scheme test --recognize-covers	
+	$ music-organizer -v -d -r -p Muzyka/ -t Muzyka/ --scheme test --recognize-covers	
 
 License
 =======

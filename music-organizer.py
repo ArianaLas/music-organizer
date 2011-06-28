@@ -22,15 +22,15 @@ class Main:
 		os.chdir(path);
 		if len(sys.argv) < 2:
 			try:
-				import MP3Organizer.interfaces.qt;
-				self.__interface = MP3Organizer.interfaces.qt.Organizer(sys.argv);
+				import MusicOrganizer.interfaces.qt;
+				self.__interface = MusicOrganizer.interfaces.qt.Organizer(sys.argv);
 			except ImportError:
 				print("[E] GUI mode not installed...");
 				sys.exit(2);
 		else:
 			try:
-				import MP3Organizer.interfaces.standard;
-				self.__interface = MP3Organizer.interfaces.standard.Organizer(sys.argv);
+				import MusicOrganizer.interfaces.standard;
+				self.__interface = MusicOrganizer.interfaces.standard.Organizer(sys.argv);
 			except ImportError:
 				print("[E] Standard mode not installed...");
 				sys.exit(2);

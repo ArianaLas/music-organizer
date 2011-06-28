@@ -81,7 +81,7 @@ class Organizer(interface.Interface):
 			self.__path = '.%s' % utils.DIR_SEPARATOR;
 			print('[I] Using default path: %s...' % self.__path);
 		if not self.__target:
-			self.__target = '.%smp3-organizer%s' % (utils.DIR_SEPARATOR, utils.DIR_SEPARATOR);
+			self.__target = '.%smusic-organizer%s' % (utils.DIR_SEPARATOR, utils.DIR_SEPARATOR);
 			print('[I] Using default target: %s...' % self.__target);
 	
 	def operate(self):
@@ -141,15 +141,15 @@ class Organizer(interface.Interface):
 					print('[W] Unable to remove directory %s...' % path);
 
 	def __usage(self):
-		print('========== MP3-ORGANIZER ==========');
+		print('========== MUSIC-ORGANIZER %s  ==========' % utils.getVersion());
 		print('Automatically organize, sort or rename your mp3 music collection\n');
 		print('Authors:');
 		print('   -> Patryk Jaworski <skorpion9312@gmail.com>\n   -> Ariana Las <ariana.las@gmail.com>');
 		print('\nOutput style:');
 		print('[E] <- Error\n[W] <- Warning\n[V] <- Verbose\n[I] <- Information\n');
 		print('Usage:');
-		print('   $ mp3-organizer - start with GUI mode');
-		print('   $ mp3-organizer [OPTIONS] - start with text mode');
+		print('   $ music-organizer - start with GUI mode');
+		print('   $ music-organizer [OPTIONS] - start with text mode');
 		print('\nOptions:\n   -t --target-directory\n      specify target directory (required)');
 		print('   -p --path\n      specify search directory (required)');
 		print('   -d --delete\n      delete directories after all files are moved');
@@ -163,7 +163,7 @@ class Organizer(interface.Interface):
 		print('   -v --verbose\n      enable verbose messages (should be first option)');
 		print('   --recognize-covers\n      move/copy all image files');
 		print('   --follow\n      follow symlinks');
-		print('\nExamples:\n   $ mp3-organizer -p ~/Music/ -t ~/Music/ -r --recognize-covers');
+		print('\nExamples:\n   $ music-organizer -p ~/Music/ -t ~/Music/ -r --recognize-covers');
 		print('      Organize ~/Music/ directory (do not remove old directories even empty)');
-		print('\n   $ mp3-organizer -p ~/ -t ~/Music/ -r -d');
+		print('\n   $ music-organizer -p ~/ -t ~/Music/ -r -d');
 		print('      Find all music (mp3) files in your home directory and move them to ~/Music/\n      (use default scheme)');

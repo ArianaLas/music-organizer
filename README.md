@@ -1,4 +1,4 @@
-MP3 Organizer
+Music Organizer
 =============
 
 Automatically organize, sort or rename your mp3 music collection
@@ -35,6 +35,7 @@ License
 =======
 
 Copyright (C)
+
 * Patryk Jaworski <skorpion9312@gmail.com>
 * Ariana Las <ariana.las@gmail.com>
 
@@ -55,6 +56,7 @@ License - PL
 ============
 
 Copyright (C)
+
 * Patryk Jaworski <skorpion9312@gmail.com>
 * Ariana Las <ariana.las@gmail.com>
 

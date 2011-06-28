@@ -156,3 +156,14 @@ def prepare(path, target):
 
 def getHomeDir():
 	return os.path.expanduser('~');
+
+def getVersion():
+	try:
+		vfp = open('VERSION', 'r');
+		version = vfp.read();
+		vfp.close();
+		if not version:
+			raise Exception();
+		return version;
+	except:
+		return "Unknown";
