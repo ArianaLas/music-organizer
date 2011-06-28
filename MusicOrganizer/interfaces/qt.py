@@ -270,7 +270,7 @@ class Organizer(QtGui.QMainWindow, interface.Interface):
 							self.__toRemove.append(path);
 						continue;
 					if f[-4:].lower() == '.mp3':
-						print(_('[I] Adding %s') % (path + f));
+						print('[I] %s' % _('Adding %s') % (path + f));
 						if self.__delete.isChecked() and path not in self.__toRemove:
 							self.__toRemove.append(path);
 						self.__files.append(path + f);
@@ -342,7 +342,7 @@ class Organizer(QtGui.QMainWindow, interface.Interface):
 			self.__numDeleted += 1;
 			return True;
 		except Exception:
-			utils.verbose(_('I can\'t remove  %s') % path);
+			utils.verbose(_('I cannot remove %s') % path);
 			try:
 				if self.__force.isChecked():
 					print(_('Force remove...'));
@@ -367,5 +367,5 @@ class Organizer(QtGui.QMainWindow, interface.Interface):
 		"""<b>Music Organizer</b> v{0}
 		<p>Copyright &copy; by Patryk Jaworski &lt;skorpion9312@gmail.com&gt;</p>
 		<p>{5}</p>
-		<p>Python {1} - Qt {2} - PyQt {3} on {4}</p>""".format(utils.getVersion(), platform.python_version(), QtCore.QT_VERSION_STR, QtCore.PYQT_VERSION_STR, platform.system(), _('Automatically organize your MP3 music collection')));
+		<p>Python {1} - Qt {2} - PyQt {3} on {4}</p>""".format(utils.getVersion(), platform.python_version(), QtCore.QT_VERSION_STR, QtCore.PYQT_VERSION_STR, platform.system(), _('Automatically organize your music collection')));
 

@@ -142,7 +142,7 @@ class Organizer(interface.Interface):
 
 	def __usage(self):
 		print('========== MUSIC-ORGANIZER %s  ==========' % utils.getVersion());
-		print(_('Automatically organize, sort or rename your mp3 music collection') + '\n');
+		print(_('Automatically organize, sort or rename your music collection') + '\n');
 		print(_('Authors:'));
 		print('   -> Patryk Jaworski <skorpion9312@gmail.com>\n   -> Ariana Las <ariana.las@gmail.com>');
 		print('');
@@ -182,4 +182,4 @@ class Organizer(interface.Interface):
 		print('   $ music-organizer -p ~/Music/ -t ~/Music/ -r --recognize-covers');
 		print('      ' + _('Organize ~/Music/ directory (do not remove old directories even empty)'));
 		print('\n   $ music-organizer -p ~/ -t ~/Music/ -r -d');
-		print('      ' + _('Find all music (mp3) files in your home directory and move them to ~/Music/      (use default scheme)'));
+		print('      ' + _('Find all music files in your home directory and move them to ~/Music/      (use default scheme)'));

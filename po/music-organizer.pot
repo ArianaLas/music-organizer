@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Patryk Jaworski <skorpion9312@gmail.com>
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the Music Organizer package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Music Organizer 0.1-alpha\n"
 "Report-Msgid-Bugs-To: Patryk Jaworski <skorpion9312@gmail.com>\n"
-"POT-Creation-Date: 2011-06-28 20:27+0200\n"
+"POT-Creation-Date: 2011-06-28 23:04+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -221,7 +221,7 @@ msgstr ""
 
 #: MusicOrganizer/interfaces/qt.py:273
 #, python-format
-msgid "[I] Adding %s"
+msgid "Adding %s"
 msgstr ""
 
 #: MusicOrganizer/interfaces/qt.py:277
@@ -279,7 +279,7 @@ msgstr ""
 
 #: MusicOrganizer/interfaces/qt.py:345
 #, python-format
-msgid "I can't remove  %s"
+msgid "I cannot remove %s"
 msgstr ""
 
 #: MusicOrganizer/interfaces/qt.py:348
@@ -303,7 +303,7 @@ msgid "Critical error"
 msgstr ""
 
 #: MusicOrganizer/interfaces/qt.py:370
-msgid "Automatically organize your MP3 music collection"
+msgid "Automatically organize your music collection"
 msgstr ""
 
 #: MusicOrganizer/interfaces/standard.py:47
@@ -384,114 +384,114 @@ msgstr ""
 msgid "I can't remove %s"
 msgstr ""
 
-#: MusicOrganizer/interfaces/standard.py:146
-msgid "Automatically organize, sort or rename your mp3 music collection"
+#: MusicOrganizer/interfaces/standard.py:145
+msgid "Automatically organize, sort or rename your music collection"
 msgstr ""
 
-#: MusicOrganizer/interfaces/standard.py:147
+#: MusicOrganizer/interfaces/standard.py:146
 msgid "Authors:"
 msgstr ""
 
-#: MusicOrganizer/interfaces/standard.py:150
+#: MusicOrganizer/interfaces/standard.py:149
 msgid "Output style:"
 msgstr ""
 
-#: MusicOrganizer/interfaces/standard.py:151
+#: MusicOrganizer/interfaces/standard.py:150
 msgid "Error"
 msgstr ""
 
-#: MusicOrganizer/interfaces/standard.py:151
+#: MusicOrganizer/interfaces/standard.py:150
 msgid "Information"
 msgstr ""
 
-#: MusicOrganizer/interfaces/standard.py:151
+#: MusicOrganizer/interfaces/standard.py:150
 msgid "Verbose"
 msgstr ""
 
-#: MusicOrganizer/interfaces/standard.py:151
+#: MusicOrganizer/interfaces/standard.py:150
 msgid "Warning"
 msgstr ""
 
-#: MusicOrganizer/interfaces/standard.py:152
+#: MusicOrganizer/interfaces/standard.py:151
 msgid "Usage:"
 msgstr ""
 
-#: MusicOrganizer/interfaces/standard.py:153
+#: MusicOrganizer/interfaces/standard.py:152
 msgid "start with GUI mode"
 msgstr ""
 
-#: MusicOrganizer/interfaces/standard.py:154
+#: MusicOrganizer/interfaces/standard.py:153
 msgid "start with text mode"
 msgstr ""
 
-#: MusicOrganizer/interfaces/standard.py:156
+#: MusicOrganizer/interfaces/standard.py:155
 msgid "Options:"
 msgstr ""
 
-#: MusicOrganizer/interfaces/standard.py:158
+#: MusicOrganizer/interfaces/standard.py:157
 msgid "specify target directory (required)"
 msgstr ""
 
-#: MusicOrganizer/interfaces/standard.py:160
+#: MusicOrganizer/interfaces/standard.py:159
 msgid "specify search directory (required)"
 msgstr ""
 
-#: MusicOrganizer/interfaces/standard.py:162
+#: MusicOrganizer/interfaces/standard.py:161
 msgid "delete directories after all files are moved"
 msgstr ""
 
-#: MusicOrganizer/interfaces/standard.py:164
+#: MusicOrganizer/interfaces/standard.py:163
 msgid "force remove unnecessary directories"
 msgstr ""
 
-#: MusicOrganizer/interfaces/standard.py:166
+#: MusicOrganizer/interfaces/standard.py:165
 msgid "search in directories recursively"
 msgstr ""
 
-#: MusicOrganizer/interfaces/standard.py:168
+#: MusicOrganizer/interfaces/standard.py:167
 msgid "copy files instead of moving"
 msgstr ""
 
-#: MusicOrganizer/interfaces/standard.py:170
+#: MusicOrganizer/interfaces/standard.py:169
 msgid "specify output files scheme"
 msgstr ""
 
-#: MusicOrganizer/interfaces/standard.py:171
+#: MusicOrganizer/interfaces/standard.py:170
 msgid "default"
 msgstr ""
 
-#: MusicOrganizer/interfaces/standard.py:172
+#: MusicOrganizer/interfaces/standard.py:171
 msgid "available"
 msgstr ""
 
-#: MusicOrganizer/interfaces/standard.py:174
+#: MusicOrganizer/interfaces/standard.py:173
 msgid "display help"
 msgstr ""
 
-#: MusicOrganizer/interfaces/standard.py:176
+#: MusicOrganizer/interfaces/standard.py:175
 msgid "enable verbose messages (should be first option)"
 msgstr ""
 
-#: MusicOrganizer/interfaces/standard.py:178
+#: MusicOrganizer/interfaces/standard.py:177
 msgid "move/copy all image files"
 msgstr ""
 
-#: MusicOrganizer/interfaces/standard.py:180
+#: MusicOrganizer/interfaces/standard.py:179
 msgid "follow symlinks"
 msgstr ""
 
-#: MusicOrganizer/interfaces/standard.py:182
+#: MusicOrganizer/interfaces/standard.py:181
 msgid "Examples:"
 msgstr ""
 
-#: MusicOrganizer/interfaces/standard.py:184
+#: MusicOrganizer/interfaces/standard.py:183
 msgid "Organize ~/Music/ directory (do not remove old directories even empty)"
 msgstr ""
 
-#: MusicOrganizer/interfaces/standard.py:186
+#: MusicOrganizer/interfaces/standard.py:185
 msgid ""
-"Find all music (mp3) files in your home directory and move them to ~/"
-"Music/      (use default scheme)"
+"Find all music files in your home directory and move them to ~/Music/      "
+"(use default scheme)"
 msgstr ""
 
 #: MusicOrganizer/utils.py:35
@@ -593,4 +593,17 @@ msgstr ""
 
 #: music-organizer.py:47
 msgid "Aborting..."
+msgstr ""
+
+#: windows-installer.py:20
+msgid "This is only Windows installer..."
+msgstr ""
+
+#: windows-installer.py:22
+msgid "Checking for PyQt4"
+msgstr ""
+
+#: windows-installer.py:26
+#, python-format
+msgid "%s not found"
 msgstr ""
