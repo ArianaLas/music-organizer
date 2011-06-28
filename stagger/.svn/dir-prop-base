@@ -1,0 +1,11 @@
+K 10
+svn:ignore
+V 51
+build
+samples
+MANIFEST
+dist
+notes
+stagger.egg-info
+
+END
