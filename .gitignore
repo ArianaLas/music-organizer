@@ -2,4 +2,3 @@
 *.pyo
 *.swp
 __pycache__
-locale/*
