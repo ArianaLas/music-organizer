@@ -1,5 +1,6 @@
 from PyQt4 import QtGui, QtCore;
 from . import interface;
+from . import qtUtils;
 from .. import utils as utils;
 import os;
 import sys;
@@ -40,6 +41,7 @@ class Organizer(QtGui.QMainWindow, interface.Interface):
 	__numCovers = 0;
 	__toRemove = [];
 	__numUntagged = 0
+	__numDuplicates = 0;
 	__files = [];
 	__progress = None;
 	__duplicates = None;
@@ -172,7 +174,6 @@ class Organizer(QtGui.QMainWindow, interface.Interface):
 
 		self.__dAction = QtGui.QComboBox();
 		self.__dAction.addItem(_('Remove'));
-		self.__dAction.addItem(_('Separate'));
 		self.__dAction.addItem(_('Leave'));
 
 		duplicatesGrid.addWidget(QtGui.QLabel(_('Strategy:')), 1, 0, QtCore.Qt.AlignRight);	
@@ -182,9 +183,10 @@ class Organizer(QtGui.QMainWindow, interface.Interface):
 		duplicatesGrid.setColumnStretch(1, 2);
 
 		self.__duplicates = QtGui.QGroupBox(_('Detect duplicates'));
+		self.__duplicates.setCheckable(True);
+		self.__duplicates.setChecked(False);
 		self.__duplicates.setLayout(duplicatesGrid);
-		self.__duplicates.setStatusTip(_('[NOT IMPLEMENTED YET]'));
-		self.__duplicates.setDisabled(True);
+		self.__duplicates.setStatusTip(_('Detect duplicates and decide what to do'));
 
 		topGroup = QtGui.QGroupBox(_('Main settings'));
 		bottomGroup = QtGui.QGroupBox(_('Options'));
@@ -222,6 +224,7 @@ class Organizer(QtGui.QMainWindow, interface.Interface):
 		self.__numDeleted = 0;
 		self.__numUntagged = 0;
 		self.__numCovers = 0;
+		self.__numDuplicates = 0;
 		self.__files = [];
 		self.__toRemove = [];
 		self.__covers = {};
@@ -300,7 +303,6 @@ class Organizer(QtGui.QMainWindow, interface.Interface):
 		except KeyboardInterrupt:
 			return False;
 		utils.verbose(('Got %d files...') % len(self.__files));
-		print(self.__covers);
 		self.__numLeft = len(self.__files);
 		self.__progress.setMaximum(self.__numLeft);
 		if self.__numLeft != 0:
@@ -311,10 +313,20 @@ class Organizer(QtGui.QMainWindow, interface.Interface):
 			self.__progress.setLabelText(_('No music files found!'));
 			return True;
 		try:
+			# Initialize duplicates detector
+			detector = None;
+			if self.__duplicates.isChecked():
+				selected = _(self.__dStrategy.currentText());
+				available = {_('MD5'): qtUtils.md5, _("SHA1"): qtUtils.sha1, _("File name"): qtUtils.basic};
+				detector = qtUtils.duplicatesDetector(available[selected]());
+
 			for F in self.__files:
+				skip_move = False;
 				if self.__progress.wasCanceled():
 					raise KeyboardInterrupt();
 				D = os.path.dirname(F);
+
+				# Get tags
 				tag = utils.getTag(F);
 				if not tag:
 					self.__numUntagged += 1;
@@ -323,10 +335,37 @@ class Organizer(QtGui.QMainWindow, interface.Interface):
 					utils.BAD_CHARS = self.__badCharacters.text();
 					utils.REPLACE_WITH = self.__replace.text();
 					tag = utils.normalizeTags(tag);
-				if utils.moveTrack(F, tag, self.__target.text(), self.__scheme.text(), self.__copy.isChecked()):
-					self.__numOk += 1;
-				else:
-					self.__numSkipped += 1;
+
+				# Detect duplicates
+				if self.__duplicates.isChecked():
+					result = detector.feed(F);
+					if result:
+						dups = detector.get(F);
+						print('[I] ' + _('Found duplicate.'));
+						print('   -> ' + _('First occurrence') + ': %s' % detector.get(F)[0]);
+						print('   -> %s' % _('Duplicates:'));
+						for dup in dups[1:]:
+							print('      -> %s' % dup);
+						if self.__dAction.currentText() == _('Remove'):
+							try:
+								print('[I] ' + _('Removing duplicate %s') % F);
+								os.remove(F);
+							except OSError:
+								print('[W] ' + _('Unable to remove duplicate: %s') % F);
+						elif self.__dAction.currentText() == _('Leave'):
+							print('[I] ' + _('Skipping duplicate %s') % F);
+						self.__numDuplicates += 1;
+						self.__numOk += 1;
+						skip_move = True;
+
+				if not skip_move:	
+					if utils.moveTrack(F, tag, self.__target.text(), self.__scheme.text(), self.__copy.isChecked()):
+						self.__numOk += 1;
+					else:
+						self.__numSkipped += 1;
+
+				#!TODO: What about cover duplicates?!
+				# Move covers
 				if D in self.__covers:
 					covers = [];
 					for cover in self.__covers[D]:
@@ -363,6 +402,8 @@ class Organizer(QtGui.QMainWindow, interface.Interface):
 			info.append((_('Untagged'), self.__numUntagged));
 			if self.__recognizeCovers.isChecked():
 				info.append((_('Covers copied').lower() if self.__copy.isChecked() else _('Covers moved').lower(), self.__numCovers));
+			if self.__duplicates.isChecked():
+				info.append(('Duplicates', self.__numDuplicates));
 			label = '';
 			for pair in info:
 				label += '<p align="center">%s: <b>%d</b></p>' % (pair[0], pair[1]);

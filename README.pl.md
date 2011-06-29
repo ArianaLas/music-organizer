@@ -1,4 +1,4 @@
-MP3 Organizer
+Music Organizer
 =============
 
 Automatycznie organizuj, sortuj lub zminiaj nazwy plików Twojej kolekcji muzycznej.
@@ -8,18 +8,10 @@ Wymagania
 
 * Python 3
 * PyQt4 (opcjonalnie - do interfejsu graficznego)
-* stagger (http://code.google.com/p/stagger/)
 
 W Arch Linux po prostu napisz:
 
 	# pacman -Sy python pyqt
-	$ yaourt -S python3-stagger-svn
-
-Jeżeli nie korzystasz z Yaourta, pobierz **PKGBUILD** dla paczki **python3-stagger-svn** z AUR i ręcznie stwórz pakiet:
-	
-	$ makepkg
-
-Następnie pakiet ten zainstaluj korzystająć z  **pacman -U**.
 
 W przypadku innych dystrybucji proszę zwrócić uwagę na **wersję Pythona**, wymagana jest **3.X** lub nowsza.
 
@@ -32,12 +24,6 @@ W systemie Windows wymagania są te same, postaram się w skrócie opisać proce
 	* Po prostu pobierz i zainstaluj odpowiednią dla Twojej wersji systemu wersję Pythona (http://python.org/download/releases/3.2/).
 * PyQt
 	* Pobierz odpowiednią paczkę z sekcji "Binary Packages" ze strony: http://www.riverbankcomputing.co.uk/software/pyqt/download
-* stagger
-	* Tutaj sprawa jest trochę bardziej skomplikowana, potrzebujemy pobrać źródła biblioteki i "ręcznie" ją zainstlować.
-	* Pobierzmy bibliotekę: http://pypi.python.org/pypi/stagger
-	* Uruchamiamy terminal (Start->Uruchom i wpisujemy `cmd`)
-	* W terminalu przechodzimy do miejsca gdzie rozpakowaliśmy pliki biblioteki (chodzi o miejsce w którym znajduje się plik setup.py) np. `cd C:\stagger\dist`
-	* Uruchamiamy *instalator* biblioteki: `setup.py build`, następnie: `setup.py install`
 
 W przyszłości postaram się te kroki uprościć lub całkowicie wyeliminować (własny instalator).
 

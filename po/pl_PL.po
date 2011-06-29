@@ -260,7 +260,7 @@ msgstr "Razem"
 
 #: MusicOrganizer/interfaces/qt.py:359
 msgid "Left"
-msgstr "Opuszczono"
+msgstr "Pozostało"
 
 #: MusicOrganizer/interfaces/qt.py:360
 #: MusicOrganizer/interfaces/standard.py:94

@@ -1,10 +1,12 @@
-try:
-	import stagger;
-except ImportError:
-	from ..stagger import stagger as stagger
 import shutil;
 import platform;
 import os;
+import sys;
+try:
+	import stagger;
+except ImportError:
+	sys.path.insert(0, sys.path[0] + '/MusicOrganizer/stagger/');
+	import stagger;
 
 #
 # Copyright (c) by Patryk Jaworski

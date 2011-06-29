@@ -7,27 +7,20 @@ Requirements
 ============
 
 * Python 3
-* stagger (http://code.google.com/p/stagger/)
+* PyQt4
 
 In Arch Linux just type:
 
-	# pacman -Sy python
-	$ yaourt -S python3-stagger-svn
-
-If you don't use yaourt wrapper, download *PKGBUILD* for package *python3-stagger-svn* from AUR and run:
-	
-	$ makepkg
-
-Then, install it with *pacman -U*.
+	# pacman -Sy python pyqt
 
 Examples
 ========
 
-	$ mp3-organizer -p ~/Music/ -t ~/Music/ -r --recognize-covers
+	$ music-organizer -p ~/Music/ -t ~/Music/ -r --recognize-covers
 
 Organize ~/Music/ directory (do not remove old directories even empty)
 
-	 $ mp3-organizer -p ~/ -t ~/Music/ -r -d
+	 $ music-organizer -p ~/ -t ~/Music/ -r -d
 
 Find all music (mp3) files in your home directory and move them to ~/Music/ (use default scheme)
 
