@@ -1,4 +1,7 @@
-import stagger;
+try:
+	import stagger;
+except ImportError:
+	from ..stagger import stagger as stagger
 import shutil;
 import platform;
 import os;
@@ -31,8 +34,8 @@ def moveCovers(covers, outputDir, copy):
 	if outputDir[-1] != DIR_SEPARATOR:
 		outputDir += DIR_SEPARATOR;
 	i = 1;
+	num = 0;
 	for c in covers:
-		verbose(_('Found cover %s...') % c);
 		ext = c[c.rfind('.'):];
 		output = outputDir + 'cover' + ext;
 		if c != output:
@@ -45,8 +48,10 @@ def moveCovers(covers, outputDir, copy):
 			else:
 				verbose(_('Moving cover %s -> %s') % (c, output));
 				shutil.move(c, output);	
+			num += 1;
 		else:
 			verbose(_('Skipping %s') % c);
+	return num;
 
 def verbose(message):
 	"""

@@ -31,10 +31,13 @@ class Organizer(QtGui.QMainWindow, interface.Interface):
 	__scheme = None;
 	__recognizeCovers = None;
 	__normalizeTags = None;
+	__downloadLyrics = None;
+	__covers = {};
 	__numOk = 0;
 	__numSkipped = 0;
 	__numDeleted = 0;
 	__numLeft = 0
+	__numCovers = 0;
 	__toRemove = [];
 	__numUntagged = 0
 	__files = [];
@@ -64,10 +67,10 @@ class Organizer(QtGui.QMainWindow, interface.Interface):
 		self.__menuBar = self.menuBar();
 
 		# Toolbar
-		start = QtGui.QAction(QtGui.QIcon('./data/icons/start.png'), 'Start', self);
+		start = QtGui.QAction(QtGui.QIcon('./data/icons/start.png'), _('Start'), self);
 		start.setStatusTip(_('Start organize'));
 		self.connect(start, QtCore.SIGNAL('triggered()'), self.__startOrganize);
-		exit = QtGui.QAction(QtGui.QIcon('./data/icons/exit.png'), 'Exit', self);
+		exit = QtGui.QAction(QtGui.QIcon('./data/icons/exit.png'), _('Exit'), self);
 		exit.setStatusTip(_('Exit Music Organizer'));
 		self.connect(exit, QtCore.SIGNAL('triggered()'), QtCore.SLOT('close()'));
 		toolbar = self.addToolBar(_('Start'));
@@ -80,7 +83,7 @@ class Organizer(QtGui.QMainWindow, interface.Interface):
 		tmp.addAction(start);
 		tmp.addAction(exit);
 		tmp = self.__menuBar.addMenu(_('&Help'));
-		about = QtGui.QAction(QtGui.QIcon('./data/icons/about.png'), 'About', self);
+		about = QtGui.QAction(QtGui.QIcon('./data/icons/about.png'), _('About'), self);
 		about.connect(about, QtCore.SIGNAL('triggered()'), self.__about);
 		tmp.addAction(about);
 
@@ -129,8 +132,10 @@ class Organizer(QtGui.QMainWindow, interface.Interface):
 		self.__normalizeTags = QtGui.QCheckBox(_('Normalize tags'));
 		self.__normalizeTags.setStatusTip(_('Remove specified bad characters from tags (~,/,@,# etc.)'));
 		self.__recognizeCovers = QtGui.QCheckBox(_('Recognize covers'));
-		self.__recognizeCovers.setStatusTip('[NOT IMPLEMENTED YET] Try to recognize covers');
-		self.__recognizeCovers.setDisabled(True);
+		self.__recognizeCovers.setStatusTip('Try to recognize covers');
+		self.__downloadLyrics = QtGui.QCheckBox(_('Download lyrics'));
+		self.__downloadLyrics.setStatusTip('%s %s' % (_('[NOT IMPLEMENTED YET]'), _('Find and download lyrics for all tracks')));
+		self.__downloadLyrics.setDisabled(True);
 
 		topGrid.setSpacing(10);
 		topGrid.addWidget(QtGui.QLabel(_('Search path:')), 1, 0, QtCore.Qt.AlignRight);
@@ -156,6 +161,7 @@ class Organizer(QtGui.QMainWindow, interface.Interface):
 		bottomGrid.addWidget(self.__deleteEmpty, 2, 2);
 		bottomGrid.addWidget(self.__normalizeTags, 3, 0);
 		bottomGrid.addWidget(self.__recognizeCovers, 3, 1);
+		bottomGrid.addWidget(self.__downloadLyrics, 3, 2);
 
 		duplicatesGrid = QtGui.QGridLayout();
 
@@ -214,9 +220,11 @@ class Organizer(QtGui.QMainWindow, interface.Interface):
 		self.__numSkipped = 0;
 		self.__numLeft = 0
 		self.__numDeleted = 0;
-		self.__numUntagged = 0
+		self.__numUntagged = 0;
+		self.__numCovers = 0;
 		self.__files = [];
 		self.__toRemove = [];
+		self.__covers = {};
 	
 	def __startOrganize(self):
 		if self.__progress != None:
@@ -257,7 +265,7 @@ class Organizer(QtGui.QMainWindow, interface.Interface):
 				except OSError:
 					utils.verbose(_('Unable to list directory %s') % path);
 					continue;
-				lastTag = None;
+				hasMusicFiles = False;
 				for f in files:
 					if self.__progress.wasCanceled():
 						raise KeyboardInterrupt(_('Canceled'));
@@ -279,9 +287,20 @@ class Organizer(QtGui.QMainWindow, interface.Interface):
 						if len(self.__files) > self.__progress.maximum() * newMax:
 							self.__progress.setMaximum(int(len(self.__files)) * 2);
 						self.__progress.setValue(len(self.__files));
+						hasMusicFiles = True;
+						continue;
+					if f[f.rfind('.'):].lower() in ('.jpg', '.gif', '.png', '.bmp', '.jpeg'):
+						dirname = os.path.dirname(path + f);
+						if dirname not in self.__covers:
+							self.__covers[dirname] = [];
+						self.__covers[dirname].append(f);
+				if not hasMusicFiles and path[0:-1] in self.__covers:
+					del(self.__covers[path[0:-1]]);
+
 		except KeyboardInterrupt:
 			return False;
-		utils.verbose("Got %d files..." % len(self.__files));
+		utils.verbose(('Got %d files...') % len(self.__files));
+		print(self.__covers);
 		self.__numLeft = len(self.__files);
 		self.__progress.setMaximum(self.__numLeft);
 		if self.__numLeft != 0:
@@ -300,7 +319,6 @@ class Organizer(QtGui.QMainWindow, interface.Interface):
 				if not tag:
 					self.__numUntagged += 1;
 					tag = utils.getDefaultTag(F);
-				print(tag);
 				if self.__normalizeTags.isChecked():
 					utils.BAD_CHARS = self.__badCharacters.text();
 					utils.REPLACE_WITH = self.__replace.text();
@@ -309,12 +327,19 @@ class Organizer(QtGui.QMainWindow, interface.Interface):
 					self.__numOk += 1;
 				else:
 					self.__numSkipped += 1;
+				if D in self.__covers:
+					covers = [];
+					for cover in self.__covers[D]:
+						covers.append(D + utils.DIR_SEPARATOR + cover);
+					outputDir = os.path.dirname(self.__target.text() + self.__scheme.text().format(**tag));
+					del(self.__covers[D]);
+					moved = utils.moveCovers(covers, outputDir, self.__copy.isChecked());
+					self.__numCovers += moved;
 				self.__numLeft -= 1;
 
 				self.__progress.setValue(self.__progress.value() + 1);
 				self.__updateProgressLabel();
 			try:
-				print(self.__toRemove);
 				while True:
 					R = self.__toRemove.pop();
 					self.__remove(R);
@@ -329,7 +354,15 @@ class Organizer(QtGui.QMainWindow, interface.Interface):
 
 	def __updateProgressLabel(self, label = None):
 		if not label:
-			info = ((_('Total'), len(self.__files)), (_('Left'), self.__numLeft), (_('Copied') if self.__copy.isChecked() else _('Moved'), self.__numOk), (_('Skipped'), self.__numSkipped), (_('Removed'), self.__numDeleted), (_('Untagged'), self.__numUntagged));
+			info = [];
+			info.append((_('Total'), len(self.__files)));
+			info.append((_('Left'), self.__numLeft));
+			info.append((_('Copied') if self.__copy.isChecked() else _('Moved'), self.__numOk))
+			info.append((_('Skipped'), self.__numSkipped));
+			info.append((_('Removed'), self.__numDeleted));
+			info.append((_('Untagged'), self.__numUntagged));
+			if self.__recognizeCovers.isChecked():
+				info.append((_('Covers copied').lower() if self.__copy.isChecked() else _('Covers moved').lower(), self.__numCovers));
 			label = '';
 			for pair in info:
 				label += '<p align="center">%s: <b>%d</b></p>' % (pair[0], pair[1]);
@@ -363,7 +396,7 @@ class Organizer(QtGui.QMainWindow, interface.Interface):
 		QtGui.QMessageBox.critical(self, 'Music Organizer :: %s' % _('Critical error'), msg, QtGui.QMessageBox.Ok);
 
 	def __about(self):
-		QtGui.QMessageBox.about(self, 'Music Organizer :: %s' % ('About'),
+		QtGui.QMessageBox.about(self, 'Music Organizer :: %s' % _('About'),
 		"""<b>Music Organizer</b> v{0}
 		<p>Copyright &copy; by Patryk Jaworski &lt;skorpion9312@gmail.com&gt;</p>
 		<p>{5}</p>
