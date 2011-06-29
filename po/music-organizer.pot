@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Patryk Jaworski <skorpion9312@gmail.com>
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the Music Organizer package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Music Organizer 0.1-alpha\n"
 "Report-Msgid-Bugs-To: Patryk Jaworski <skorpion9312@gmail.com>\n"
-"POT-Creation-Date: 2011-06-28 23:20+0200\n"
+"POT-Creation-Date: 2011-06-29 13:38+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,293 +17,313 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: MusicOrganizer/interfaces/qt.py:59
+#: MusicOrganizer/interfaces/qt.py:62
 msgid "Initializing UI..."
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:68
-msgid "Start organize"
-msgstr ""
-
-#: MusicOrganizer/interfaces/qt.py:71
-msgid "Exit Music Organizer"
-msgstr ""
-
-#: MusicOrganizer/interfaces/qt.py:73
+#: MusicOrganizer/interfaces/qt.py:70 MusicOrganizer/interfaces/qt.py:76
 msgid "Start"
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:75
+#: MusicOrganizer/interfaces/qt.py:71
+msgid "Start organize"
+msgstr ""
+
+#: MusicOrganizer/interfaces/qt.py:73 MusicOrganizer/interfaces/qt.py:78
 msgid "Exit"
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:79
-msgid "&File"
+#: MusicOrganizer/interfaces/qt.py:74
+msgid "Exit Music Organizer"
 msgstr ""
 
 #: MusicOrganizer/interfaces/qt.py:82
+msgid "&File"
+msgstr ""
+
+#: MusicOrganizer/interfaces/qt.py:85
 msgid "&Help"
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:100 MusicOrganizer/interfaces/qt.py:101
+#: MusicOrganizer/interfaces/qt.py:86 MusicOrganizer/interfaces/qt.py:399
+msgid "About"
+msgstr ""
+
+#: MusicOrganizer/interfaces/qt.py:103 MusicOrganizer/interfaces/qt.py:104
 msgid "This characters is used if \"Normalize tags\" is checked."
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:104 MusicOrganizer/interfaces/qt.py:105
+#: MusicOrganizer/interfaces/qt.py:107 MusicOrganizer/interfaces/qt.py:108
 msgid ""
 "Replacement for any character from \"Bad characters\". Leave empty if you "
 "want to remove all bad characters."
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:106 MusicOrganizer/interfaces/qt.py:108
+#: MusicOrganizer/interfaces/qt.py:109 MusicOrganizer/interfaces/qt.py:111
 msgid "Browse"
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:107 MusicOrganizer/interfaces/qt.py:205
+#: MusicOrganizer/interfaces/qt.py:110 MusicOrganizer/interfaces/qt.py:211
 msgid "Select search directory"
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:109 MusicOrganizer/interfaces/qt.py:194
+#: MusicOrganizer/interfaces/qt.py:112 MusicOrganizer/interfaces/qt.py:200
 msgid "Select target directory"
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:110 MusicOrganizer/interfaces/qt.py:111
+#: MusicOrganizer/interfaces/qt.py:113 MusicOrganizer/interfaces/qt.py:114
 msgid "Set default"
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:117
+#: MusicOrganizer/interfaces/qt.py:120
 msgid "Recursive mode"
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:118
+#: MusicOrganizer/interfaces/qt.py:121
 msgid "Enable recursive mode"
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:119
+#: MusicOrganizer/interfaces/qt.py:122
 msgid "Delete mode"
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:120
+#: MusicOrganizer/interfaces/qt.py:123
 msgid "Delete filtered directories"
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:121
+#: MusicOrganizer/interfaces/qt.py:124
 msgid "Clean directories"
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:122
+#: MusicOrganizer/interfaces/qt.py:125
 msgid "Remove all empty directories"
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:123
+#: MusicOrganizer/interfaces/qt.py:126
 msgid "Force"
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:124
+#: MusicOrganizer/interfaces/qt.py:127
 msgid "Force delete filtered directories"
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:125
+#: MusicOrganizer/interfaces/qt.py:128
 msgid "Copy"
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:126
+#: MusicOrganizer/interfaces/qt.py:129
 msgid "Copy files instead of move"
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:127
+#: MusicOrganizer/interfaces/qt.py:130
 msgid "Follow symlinks"
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:128
+#: MusicOrganizer/interfaces/qt.py:131
 msgid "Follow symlinks/links/shortcuts"
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:129
+#: MusicOrganizer/interfaces/qt.py:132
 msgid "Normalize tags"
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:130
+#: MusicOrganizer/interfaces/qt.py:133
 msgid "Remove specified bad characters from tags (~,/,@,# etc.)"
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:131
+#: MusicOrganizer/interfaces/qt.py:134
 msgid "Recognize covers"
 msgstr ""
 
 #: MusicOrganizer/interfaces/qt.py:136
-msgid "Search path:"
+msgid "Download lyrics"
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:139
-msgid "Target path:"
+#: MusicOrganizer/interfaces/qt.py:137
+msgid "Find and download lyrics for all tracks"
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:142
-msgid "Scheme:"
-msgstr ""
-
-#: MusicOrganizer/interfaces/qt.py:145
-msgid "Bad characters:"
-msgstr ""
-
-#: MusicOrganizer/interfaces/qt.py:148
-msgid "Replacement: "
-msgstr ""
-
-#: MusicOrganizer/interfaces/qt.py:165
-msgid "File name"
-msgstr ""
-
-#: MusicOrganizer/interfaces/qt.py:168
-msgid "Remove"
-msgstr ""
-
-#: MusicOrganizer/interfaces/qt.py:169
-msgid "Separate"
-msgstr ""
-
-#: MusicOrganizer/interfaces/qt.py:170
-msgid "Leave"
-msgstr ""
-
-#: MusicOrganizer/interfaces/qt.py:172
-msgid "Strategy:"
-msgstr ""
-
-#: MusicOrganizer/interfaces/qt.py:174
-msgid "Action:"
-msgstr ""
-
-#: MusicOrganizer/interfaces/qt.py:178
-msgid "Detect duplicates"
-msgstr ""
-
-#: MusicOrganizer/interfaces/qt.py:180
+#: MusicOrganizer/interfaces/qt.py:137 MusicOrganizer/interfaces/qt.py:186
 msgid "[NOT IMPLEMENTED YET]"
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:183
-msgid "Main settings"
+#: MusicOrganizer/interfaces/qt.py:141
+msgid "Search path:"
+msgstr ""
+
+#: MusicOrganizer/interfaces/qt.py:144
+msgid "Target path:"
+msgstr ""
+
+#: MusicOrganizer/interfaces/qt.py:147
+msgid "Scheme:"
+msgstr ""
+
+#: MusicOrganizer/interfaces/qt.py:150
+msgid "Bad characters:"
+msgstr ""
+
+#: MusicOrganizer/interfaces/qt.py:153
+msgid "Replacement: "
+msgstr ""
+
+#: MusicOrganizer/interfaces/qt.py:171
+msgid "File name"
+msgstr ""
+
+#: MusicOrganizer/interfaces/qt.py:174
+msgid "Remove"
+msgstr ""
+
+#: MusicOrganizer/interfaces/qt.py:175
+msgid "Separate"
+msgstr ""
+
+#: MusicOrganizer/interfaces/qt.py:176
+msgid "Leave"
+msgstr ""
+
+#: MusicOrganizer/interfaces/qt.py:178
+msgid "Strategy:"
+msgstr ""
+
+#: MusicOrganizer/interfaces/qt.py:180
+msgid "Action:"
 msgstr ""
 
 #: MusicOrganizer/interfaces/qt.py:184
+msgid "Detect duplicates"
+msgstr ""
+
+#: MusicOrganizer/interfaces/qt.py:189
+msgid "Main settings"
+msgstr ""
+
+#: MusicOrganizer/interfaces/qt.py:190
 msgid "Options"
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:223
+#: MusicOrganizer/interfaces/qt.py:231
 msgid "Another hardcore organizing action is running now!"
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:235
+#: MusicOrganizer/interfaces/qt.py:243
 msgid "Staring hardcore organizing action!"
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:247 MusicOrganizer/interfaces/qt.py:263
+#: MusicOrganizer/interfaces/qt.py:255 MusicOrganizer/interfaces/qt.py:271
 msgid "Canceled"
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:255
+#: MusicOrganizer/interfaces/qt.py:263
 #, python-format
 msgid "Skipping empty directory %s"
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:258
+#: MusicOrganizer/interfaces/qt.py:266
 #, python-format
 msgid "Unable to list directory %s"
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:265
+#: MusicOrganizer/interfaces/qt.py:273
 #: MusicOrganizer/interfaces/standard.py:111
 #, python-format
 msgid "Skipping link %s..."
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:273
+#: MusicOrganizer/interfaces/qt.py:281
 #, python-format
 msgid "Adding %s"
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:277
+#: MusicOrganizer/interfaces/qt.py:285
 #, python-format
 msgid "Preparing files (%d)"
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:289
+#: MusicOrganizer/interfaces/qt.py:308
 msgid "Organizing files..."
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:292
+#: MusicOrganizer/interfaces/qt.py:311
 msgid "No music files found!"
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:326
+#: MusicOrganizer/interfaces/qt.py:351
 msgid "Ok"
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:332
+#: MusicOrganizer/interfaces/qt.py:358
+msgid "Total"
+msgstr ""
+
+#: MusicOrganizer/interfaces/qt.py:359
+msgid "Left"
+msgstr ""
+
+#: MusicOrganizer/interfaces/qt.py:360
 #: MusicOrganizer/interfaces/standard.py:94
 msgid "Copied"
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:332
-msgid "Left"
-msgstr ""
-
-#: MusicOrganizer/interfaces/qt.py:332
+#: MusicOrganizer/interfaces/qt.py:360
 #: MusicOrganizer/interfaces/standard.py:94
 msgid "Moved"
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:332
-msgid "Removed"
-msgstr ""
-
-#: MusicOrganizer/interfaces/qt.py:332
+#: MusicOrganizer/interfaces/qt.py:361
 msgid "Skipped"
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:332
-msgid "Total"
+#: MusicOrganizer/interfaces/qt.py:362
+msgid "Removed"
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:332
+#: MusicOrganizer/interfaces/qt.py:363
 msgid "Untagged"
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:340
+#: MusicOrganizer/interfaces/qt.py:365
+msgid "Covers copied"
+msgstr ""
+
+#: MusicOrganizer/interfaces/qt.py:365
+msgid "Covers moved"
+msgstr ""
+
+#: MusicOrganizer/interfaces/qt.py:373
 #: MusicOrganizer/interfaces/standard.py:130
 #, python-format
 msgid "Removing %s"
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:345
+#: MusicOrganizer/interfaces/qt.py:378
 #: MusicOrganizer/interfaces/standard.py:133
 #, python-format
 msgid "Cannot remove %s"
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:348
+#: MusicOrganizer/interfaces/qt.py:381
 msgid "Force remove..."
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:352
+#: MusicOrganizer/interfaces/qt.py:385
 #: MusicOrganizer/interfaces/standard.py:136
 #, python-format
 msgid "Force removing %s"
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:359
+#: MusicOrganizer/interfaces/qt.py:392
 #: MusicOrganizer/interfaces/standard.py:141
 #, python-format
 msgid "Unable to remove directory %s..."
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:363
+#: MusicOrganizer/interfaces/qt.py:396
 msgid "Critical error"
 msgstr ""
 
-#: MusicOrganizer/interfaces/qt.py:370
+#: MusicOrganizer/interfaces/qt.py:403
 msgid "Automatically organize your music collection"
 msgstr ""
 
@@ -490,92 +510,87 @@ msgid ""
 "(use default scheme)"
 msgstr ""
 
-#: MusicOrganizer/utils.py:35
-#, python-format
-msgid "Found cover %s..."
-msgstr ""
-
-#: MusicOrganizer/utils.py:43
+#: MusicOrganizer/utils.py:46
 #, python-format
 msgid "Copying cover %s -> %s"
 msgstr ""
 
-#: MusicOrganizer/utils.py:46
+#: MusicOrganizer/utils.py:49
 #, python-format
 msgid "Moving cover %s -> %s"
 msgstr ""
 
-#: MusicOrganizer/utils.py:49
+#: MusicOrganizer/utils.py:53
 #, python-format
 msgid "Skipping %s"
 msgstr ""
 
-#: MusicOrganizer/utils.py:74
+#: MusicOrganizer/utils.py:79
 #, python-format
 msgid "Track %s has no ID3 tags..."
 msgstr ""
 
-#: MusicOrganizer/utils.py:112
+#: MusicOrganizer/utils.py:117
 msgid "Creating output directories..."
 msgstr ""
 
-#: MusicOrganizer/utils.py:122
+#: MusicOrganizer/utils.py:127
 #, python-format
 msgid "Copying %s -> %s"
 msgstr ""
 
-#: MusicOrganizer/utils.py:126
+#: MusicOrganizer/utils.py:131
 #, python-format
 msgid "Moving %s -> %s"
 msgstr ""
 
-#: MusicOrganizer/utils.py:130
+#: MusicOrganizer/utils.py:135
 #, python-format
 msgid "Skipping %s..."
 msgstr ""
 
-#: MusicOrganizer/utils.py:138
+#: MusicOrganizer/utils.py:143
 msgid "Please specify search and target directories!"
 msgstr ""
 
-#: MusicOrganizer/utils.py:139
+#: MusicOrganizer/utils.py:144
 msgid "Preparing directories..."
 msgstr ""
 
-#: MusicOrganizer/utils.py:140
+#: MusicOrganizer/utils.py:145
 msgid "Checking path..."
 msgstr ""
 
-#: MusicOrganizer/utils.py:142
+#: MusicOrganizer/utils.py:147
 msgid "Directory given in path does not exists!"
 msgstr ""
 
-#: MusicOrganizer/utils.py:144
+#: MusicOrganizer/utils.py:149
 msgid "Directory given in path has no READ privilages!"
 msgstr ""
 
-#: MusicOrganizer/utils.py:145
+#: MusicOrganizer/utils.py:150
 msgid "Checking target dir..."
 msgstr ""
 
-#: MusicOrganizer/utils.py:147
+#: MusicOrganizer/utils.py:152
 #, python-format
 msgid "Directory %s not found, trying to create..."
 msgstr ""
 
-#: MusicOrganizer/utils.py:151
+#: MusicOrganizer/utils.py:156
 msgid "Unable to create directory..."
 msgstr ""
 
-#: MusicOrganizer/utils.py:152
+#: MusicOrganizer/utils.py:157
 msgid "Checking access in target directory..."
 msgstr ""
 
-#: MusicOrganizer/utils.py:154
+#: MusicOrganizer/utils.py:159
 msgid "Target directory is not writable!"
 msgstr ""
 
-#: MusicOrganizer/utils.py:168
+#: MusicOrganizer/utils.py:173
 msgid "Unknown"
 msgstr ""
 
